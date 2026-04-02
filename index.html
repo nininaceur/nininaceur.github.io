@@ -7,148 +7,507 @@
   <meta name="description" content="Personal academic website of Your Name">
   <style>
     :root {
-      --bg: #f7f7f7;
-      --text: #1f1f1f;
-      --muted: #666;
-      --card: #ffffff;
-      --line: #dddddd;
-      --link: #0b57d0;
-      --max: 800px;
+      --bg: #ffffff;
+      --text: #111111;
+      --muted: #5f6368;
+      --line: #e5e7eb;
+      --soft: #f8f9fa;
+      --link: #1a73e8;
+      --max: 980px;
+      --radius: 18px;
+      --shadow: 0 1px 2px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.04);
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.6;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
     }
 
     .container {
       max-width: var(--max);
       margin: 0 auto;
-      padding: 2rem 1rem 4rem;
+      padding: 0 24px;
     }
 
-    header, section {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 1.5rem;
-      margin-bottom: 1rem;
-    }
-
-    h1, h2 {
-      margin-top: 0;
-      line-height: 1.2;
-    }
-
-    .subtitle {
-      color: var(--muted);
-      margin-top: -0.5rem;
-    }
-
-    nav a, a {
-      color: var(--link);
-      text-decoration: none;
-    }
-
-    nav a:hover, a:hover {
-      text-decoration: underline;
+    .nav-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: saturate(180%) blur(14px);
+      background: rgba(255,255,255,0.88);
+      border-bottom: 1px solid rgba(229,231,235,0.8);
     }
 
     nav {
-      margin-top: 1rem;
+      height: 72px;
       display: flex;
-      gap: 1rem;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.96rem;
+      text-decoration: none;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .hero {
+      padding: 96px 0 72px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--soft);
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      margin: 0 0 18px;
+      font-size: clamp(2.6rem, 6vw, 4.6rem);
+      line-height: 1.03;
+      letter-spacing: -0.05em;
+      font-weight: 650;
+    }
+
+    .hero p.lead {
+      margin: 0;
+      font-size: 1.18rem;
+      color: var(--muted);
+      max-width: 720px;
+    }
+
+    .hero-actions {
+      margin-top: 28px;
+      display: flex;
+      gap: 14px;
       flex-wrap: wrap;
     }
 
-    ul {
-      padding-left: 1.2rem;
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 46px;
+      padding: 0 18px;
+      border-radius: 999px;
+      font-size: 0.96rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: 0.15s ease;
+      border: 1px solid var(--line);
+    }
+
+    .button.primary {
+      background: var(--text);
+      color: white;
+      border-color: var(--text);
+    }
+
+    .button.primary:hover {
+      opacity: 0.92;
+      text-decoration: none;
+    }
+
+    .button.secondary {
+      color: var(--text);
+      background: white;
+    }
+
+    .button.secondary:hover {
+      background: var(--soft);
+      text-decoration: none;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .profile-card {
+      padding: 22px;
+    }
+
+    .profile-card h2 {
+      margin: 0 0 8px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    .profile-card p,
+    .profile-card li {
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .profile-card ul {
+      margin: 14px 0 0;
+      padding-left: 18px;
+    }
+
+    section {
+      padding: 36px 0;
+      scroll-margin-top: 100px;
+    }
+
+    .section-header {
+      margin-bottom: 18px;
+    }
+
+    .section-kicker {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-bottom: 10px;
+    }
+
+    h2.section-title {
+      margin: 0;
+      font-size: 2rem;
+      letter-spacing: -0.04em;
+      line-height: 1.1;
+      font-weight: 620;
+    }
+
+    .section-intro {
+      margin-top: 12px;
+      color: var(--muted);
+      max-width: 700px;
+      font-size: 1rem;
+    }
+
+    .stack {
+      display: grid;
+      gap: 16px;
+    }
+
+    .entry {
+      padding: 22px 24px;
+    }
+
+    .entry-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: baseline;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+
+    .entry-title {
+      margin: 0;
+      font-size: 1.02rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    .entry-meta {
+      color: var(--muted);
+      font-size: 0.94rem;
+      white-space: nowrap;
+    }
+
+    .entry p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .tag-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 7px 12px;
+      background: var(--soft);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .cv-box {
+      padding: 28px;
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .cv-box p {
+      margin: 8px 0 0;
+      color: var(--muted);
     }
 
     footer {
+      padding: 56px 0 72px;
       color: var(--muted);
-      font-size: 0.95rem;
-      text-align: center;
-      margin-top: 2rem;
+      font-size: 0.94rem;
     }
 
-    .small {
-      color: var(--muted);
-      font-size: 0.95rem;
+    .footer-line {
+      border-top: 1px solid var(--line);
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 860px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        height: auto;
+        padding: 18px 0;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        gap: 18px;
+      }
+
+      .hero {
+        padding-top: 56px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>Your Name</h1>
-      <p class="subtitle">PhD Student in Quantum Information and Polynomial Optimization</p>
-      <p>
-        I work on polynomial and semidefinite optimization methods for quantum information,
-        with a focus on quantum networks, certification, and noncommutative optimization.
-      </p>
+  <div class="nav-wrap">
+    <div class="container">
       <nav>
-        <a href="#about">About</a>
-        <a href="#publications">Publications</a>
-        <a href="#talks">Talks</a>
-        <a href="#teaching">Teaching</a>
-        <a href="#contact">Contact</a>
+        <div class="brand">Your Name</div>
+        <div class="nav-links">
+          <a href="#start">Start</a>
+          <a href="#publications-talks">Publications and Talks</a>
+          <a href="#software">Software</a>
+          <a href="#cv">CV</a>
+        </div>
       </nav>
-    </header>
-
-    <section id="about">
-      <h2>About</h2>
-      <p>
-        Write a short professional bio here. Include your institution, research interests,
-        and one or two current projects.
-      </p>
-    </section>
-
-    <section id="publications">
-      <h2>Publications</h2>
-      <ul>
-        <li>
-          Author 1, Author 2, <strong>Your Name</strong>,
-          “Paper title,” <em>Journal/ArXiv</em>, year.
-        </li>
-        <li>
-          Add links to arXiv, DOI, code, or slides as needed.
-        </li>
-      </ul>
-    </section>
-
-    <section id="talks">
-      <h2>Talks</h2>
-      <ul>
-        <li>Talk title, event, location, year.</li>
-      </ul>
-    </section>
-
-    <section id="teaching">
-      <h2>Teaching</h2>
-      <ul>
-        <li>Course or supervision item.</li>
-      </ul>
-    </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
-      <p>
-        GitHub: <a href="https://github.com/yourusername">github.com/yourusername</a><br>
-        Google Scholar: <a href="#">Add link</a><br>
-        ORCID: <a href="#">Add link</a>
-      </p>
-    </section>
-
-    <footer>
-      <p>Last updated: April 2026</p>
-    </footer>
+    </div>
   </div>
+
+  <main>
+    <section id="start" class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <div class="eyebrow">Scientist · Quantum Information · Optimization</div>
+            <h1>Your Name</h1>
+            <p class="lead">
+              I work on polynomial and semidefinite optimization methods for quantum information,
+              with a focus on quantum networks, certification, and noncommutative optimization.
+            </p>
+            <div class="hero-actions">
+              <a class="button primary" href="#publications-talks">View research</a>
+              <a class="button secondary" href="cv.pdf" target="_blank" rel="noopener">Download CV</a>
+            </div>
+          </div>
+
+          <aside class="card profile-card">
+            <h2>Profile</h2>
+            <p>
+              PhD Student / Researcher<br>
+              Your Institution
+            </p>
+            <ul>
+              <li>Quantum information theory</li>
+              <li>Polynomial optimization</li>
+              <li>Semidefinite programming</li>
+              <li>Quantum networks</li>
+            </ul>
+            <div class="tag-row">
+              <span class="tag">Google Scholar</span>
+              <span class="tag">GitHub</span>
+              <span class="tag">ORCID</span>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications-talks">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">Research</div>
+          <h2 class="section-title">Publications and Talks</h2>
+          <div class="section-intro">
+            Selected papers, preprints, invited talks, and presentations.
+          </div>
+        </div>
+
+        <div class="stack">
+          <article class="card entry">
+            <div class="entry-top">
+              <h3 class="entry-title">Paper Title One</h3>
+              <div class="entry-meta">Journal / arXiv · 2026</div>
+            </div>
+            <p>
+              Author A, Author B, <strong>Your Name</strong>. Add a short one-line description here.
+              <a href="#">Paper</a> · <a href="#">arXiv</a> · <a href="#">Code</a>
+            </p>
+          </article>
+
+          <article class="card entry">
+            <div class="entry-top">
+              <h3 class="entry-title">Paper Title Two</h3>
+              <div class="entry-meta">Preprint · 2025</div>
+            </div>
+            <p>
+              Author A, <strong>Your Name</strong>. Add a short one-line description here.
+              <a href="#">Paper</a> · <a href="#">Slides</a>
+            </p>
+          </article>
+
+          <article class="card entry">
+            <div class="entry-top">
+              <h3 class="entry-title">Talk Title</h3>
+              <div class="entry-meta">Conference / Seminar · 2025</div>
+            </div>
+            <p>
+              Event name, city. Short description of the talk topic.
+              <a href="#">Slides</a>
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="software">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">Code</div>
+          <h2 class="section-title">Software</h2>
+          <div class="section-intro">
+            Research software, open-source packages, and computational tools.
+          </div>
+        </div>
+
+        <div class="stack">
+          <article class="card entry">
+            <div class="entry-top">
+              <h3 class="entry-title">Project Name</h3>
+              <div class="entry-meta">Julia / Python</div>
+            </div>
+            <p>
+              Brief description of the package or codebase and what it is used for.
+              <a href="#">GitHub</a> · <a href="#">Documentation</a>
+            </p>
+          </article>
+
+          <article class="card entry">
+            <div class="entry-top">
+              <h3 class="entry-title">Project Name</h3>
+              <div class="entry-meta">Optimization / SDP</div>
+            </div>
+            <p>
+              Brief description of the package or codebase and what it is used for.
+              <a href="#">GitHub</a>
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="cv">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">Career</div>
+          <h2 class="section-title">CV</h2>
+          <div class="section-intro">
+            A current academic CV including education, positions, publications, talks, and awards.
+          </div>
+        </div>
+
+        <div class="card cv-box">
+          <div>
+            <strong>Curriculum Vitae</strong>
+            <p>Download the latest PDF version of my CV.</p>
+          </div>
+          <div>
+            <a class="button primary" href="cv.pdf" target="_blank" rel="noopener">Open CV</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-line">
+        <div>© 2026 Your Name</div>
+        <div>
+          <a href="mailto:your.email@example.com">Email</a> ·
+          <a href="https://github.com/yourusername" target="_blank" rel="noopener">GitHub</a> ·
+          <a href="#" target="_blank" rel="noopener">Google Scholar</a> ·
+          <a href="#" target="_blank" rel="noopener">ORCID</a>
+        </div>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
