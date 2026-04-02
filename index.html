@@ -191,25 +191,67 @@
     }
 
     .profile-card {
-      padding: 22px;
+      padding: 24px;
     }
-
+    
     .profile-card h2 {
-      margin: 0 0 8px;
+      margin: 0 0 18px;
       font-size: 1.05rem;
       font-weight: 600;
       letter-spacing: -0.02em;
     }
-
-    .profile-card p,
+    
+    .profile-block + .profile-block {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+    }
+    
+    .profile-label {
+      margin: 0 0 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    
+    .profile-role {
+      margin: 0;
+      font-size: 1rem;
+      color: var(--text);
+      font-weight: 500;
+    }
+    
+    .profile-links {
+      display: grid;
+      gap: 8px;
+    }
+    
+    .profile-links a {
+      color: var(--text);
+      text-decoration: none;
+      line-height: 1.45;
+    }
+    
+    .profile-links a:hover {
+      color: var(--link);
+      text-decoration: none;
+    }
+    
+    .profile-links span {
+      color: var(--muted);
+    }
+    
+    .profile-card ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+    
     .profile-card li {
       color: var(--muted);
       font-size: 0.96rem;
-    }
-
-    .profile-card ul {
-      margin: 14px 0 0;
-      padding-left: 18px;
+      margin: 4px 0;
     }
 
     section {
@@ -374,6 +416,7 @@
             >
             <div class="eyebrow">Quantum Information · Optimization · Applied Mathematics</div>
             <h1>Younes Naceur</h1>
+            <p class="lead">
               I work on polynomial and semidefinite optimization methods for quantum information and beyond,
               with a focus on quantum networks, certification, and noncommutative optimization. I'm also interested in quantum computing, mathematical physics, and machine learning.
             </p>
@@ -385,17 +428,37 @@
 
           <aside class="card profile-card">
             <h2>Profile</h2>
-            <p>
-              PhD Student<br>
-              ICFO - The institute of Photonic Sciences · Laboratoire d'analyse et d'architecture des systèmes
-            </p>
-            <ul>
-              <li>Quantum information theory</li>
-              <li>Polynomial optimization</li>
-              <li>Semidefinite programming</li>
-              <li>Quantum networks</li>
-              <li>Quantum computing</li>
-            </ul>
+          
+            <div class="profile-block">
+              <p class="profile-label">Position</p>
+              <p class="profile-role">PhD Student</p>
+            </div>
+          
+            <div class="profile-block">
+              <p class="profile-label">Affiliations</p>
+              <div class="profile-links">
+                <a href="https://www.icfo.eu/" target="_blank" rel="noopener">
+                  ICFO <span>· Institute of Photonic Sciences</span>
+                </a>
+                <a href="https://www.laas.fr/public/en/home/" target="_blank" rel="noopener">
+                  LAAS-CNRS <span>· Laboratoire d'Analyse et d'Architecture des Systèmes</span>
+                </a>
+                <a href="https://tenors-network.eu/" target="_blank" rel="noopener">
+                  TENORS <span>· Tensor and Polynomial Optimization for Quantum Information Networks</span>
+                </a>
+              </div>
+            </div>
+          
+            <div class="profile-block">
+              <p class="profile-label">Research Areas</p>
+              <ul>
+                <li>Quantum information theory</li>
+                <li>Polynomial optimization</li>
+                <li>Semidefinite programming</li>
+                <li>Quantum networks</li>
+                <li>Quantum computing</li>
+              </ul>
+            </div>
           </aside>
         </div>
       </div>
