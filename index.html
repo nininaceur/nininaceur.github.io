@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your Name</title>
+  <meta name="description" content="Personal academic website of Your Name">
+  <style>
+    :root {
+      --bg: #f7f7f7;
+      --text: #1f1f1f;
+      --muted: #666;
+      --card: #ffffff;
+      --line: #dddddd;
+      --link: #0b57d0;
+      --max: 800px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 2rem 1rem 4rem;
+    }
+
+    header, section {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    h1, h2 {
+      margin-top: 0;
+      line-height: 1.2;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      margin-top: -0.5rem;
+    }
+
+    nav a, a {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    nav a:hover, a:hover {
+      text-decoration: underline;
+    }
+
+    nav {
+      margin-top: 1rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    footer {
+      color: var(--muted);
+      font-size: 0.95rem;
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .small {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Your Name</h1>
+      <p class="subtitle">PhD Student in Quantum Information and Polynomial Optimization</p>
+      <p>
+        I work on polynomial and semidefinite optimization methods for quantum information,
+        with a focus on quantum networks, certification, and noncommutative optimization.
+      </p>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#publications">Publications</a>
+        <a href="#talks">Talks</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <section id="about">
+      <h2>About</h2>
+      <p>
+        Write a short professional bio here. Include your institution, research interests,
+        and one or two current projects.
+      </p>
+    </section>
+
+    <section id="publications">
+      <h2>Publications</h2>
+      <ul>
+        <li>
+          Author 1, Author 2, <strong>Your Name</strong>,
+          “Paper title,” <em>Journal/ArXiv</em>, year.
+        </li>
+        <li>
+          Add links to arXiv, DOI, code, or slides as needed.
+        </li>
+      </ul>
+    </section>
+
+    <section id="talks">
+      <h2>Talks</h2>
+      <ul>
+        <li>Talk title, event, location, year.</li>
+      </ul>
+    </section>
+
+    <section id="teaching">
+      <h2>Teaching</h2>
+      <ul>
+        <li>Course or supervision item.</li>
+      </ul>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+      <p>
+        GitHub: <a href="https://github.com/yourusername">github.com/yourusername</a><br>
+        Google Scholar: <a href="#">Add link</a><br>
+        ORCID: <a href="#">Add link</a>
+      </p>
+    </section>
+
+    <footer>
+      <p>Last updated: April 2026</p>
+    </footer>
+  </div>
+</body>
+</html>
