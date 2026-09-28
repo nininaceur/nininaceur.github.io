@@ -112,8 +112,10 @@
       border-radius: 50%;
       display: block;
       margin-bottom: 24px;
-      border: 3px solid white;
-      box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.08);
+      filter: brightness(0.92) contrast(0.96) saturate(0.95);
+      border: 1px solid var(--line);
+      box-shadow: 0 1px 2px rgba(0,0,0,0.06),
+                  0 8px 24px rgba(0,0,0,0.08);
     }
 
     .eyebrow {
@@ -477,6 +479,19 @@
         </div>
 
         <div class="stack">
+
+          <article class="card entry">
+            <div class="entry-top">
+              <h3 class="entry-title">Preprint: Reachability and optimal-time certificates for quantum control</h3>
+              <div class="entry-meta">arXiv preprint · 2026</div>
+            </div>
+            <p>
+              <strong>Younes Naceur</strong>, Llorenç Balada Gaggioli. Developed semidefinite optimization hierarchies to rigorously certify finite-time reachability and optimal control times in constrained quantum systems, yielding upper bounds on achievable fidelities and lower bounds on the time required to reach target states and gates.
+              <a href="https://arxiv.org/abs/2606.24645">arXiv</a> ·
+              <a href="https://github.com/nininaceur/ReachabilityQuantumControl">Code</a>
+            </p>
+          </article>
+          
           <article class="card entry">
             <div class="entry-top">
               <h3 class="entry-title">Preprint: Certified bounds on optimization problems in quantum theory</h3>
